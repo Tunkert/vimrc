@@ -5,16 +5,11 @@ call plug#begin('~/.vim/plugged')
 Plug 'https://github.com/mattn/emmet-vim.git'
 Plug 'https://github.com/preservim/nerdtree.git'
 Plug 'https://github.com/tpope/vim-commentary.git'
-Plug 'https://github.com/tomasiser/vim-code-dark.git'
 
 call plug#end()
 
 " set nerdtree to open with control - b
 nnoremap <c-b> :NERDTreeToggle<CR>
-
-" set colorscheme to codedark and termguicolors
-set termguicolors
-colo codedark
 
 " set linenumbers and relative number
 set number relativenumber
@@ -33,3 +28,10 @@ imap kj <Esc>
 " set control n to open terminal below
 set splitbelow
 nnoremap <c-n> :term<CR>
+
+" for vim 8
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+colo industry
