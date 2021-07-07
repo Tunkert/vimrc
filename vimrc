@@ -4,12 +4,14 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'https://github.com/mattn/emmet-vim.git'
 Plug 'https://github.com/preservim/nerdtree.git'
+Plug 'https://github.com/frazrepo/vim-rainbow.git'
+Plug 'https://github.com/tomasiser/vim-code-dark.git'
+Plug 'https://github.com/sainnhe/sonokai.git'
+Plug 'https://github.com/morhetz/gruvbox.git'
 Plug 'https://github.com/tpope/vim-commentary.git'
+Plug 'https://github.com/lifepillar/vim-solarized8.git'
 
 call plug#end()
-
-" set nerdtree to open with control - b
-nnoremap <c-b> :NERDTreeToggle<CR>
 
 " set linenumbers and relative number
 set number relativenumber
@@ -29,9 +31,11 @@ imap kj <Esc>
 set splitbelow
 nnoremap <c-n> :term<CR>
 
-" for vim 8
-if (has("termguicolors"))
-  set termguicolors
-endif
+" set ctrl-b for nerdtree
+nnoremap <c-b> :NERDTreeToggle<CR>
 
-colo industry
+" set colors
+set termguicolors
+colo solarized8_high
+
+" colo zellner (for daytime coding or use peachpuff / delek / morning)
