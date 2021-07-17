@@ -44,7 +44,7 @@ set softtabstop=2
 set expandtab
 
 "set tab indent for python and c
-autocmd FileType python,c setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
+autocmd FileType python,c,cs setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
 
 "set ctrl j (same as emacs) for emmet in html and css
 autocmd FileType html,css,php imap <c-j> <c-y>,
@@ -97,6 +97,14 @@ autocmd FileType c nmap <c-c> <Esc><c-t>gcc -o test
 " start c files with info
 autocmd FileType c imap <c-1> #include <stdio.h><CR>#include <stdlib.h><CR>#include <math.h><CR><CR>int main()<CR>{<CR><CR>return 0;}<Esc>2ki<c-i>
 autocmd FileType c nmap <c-1> i#include <stdio.h><CR>#include <stdlib.h><CR>#include <math.h><CR><CR>int main()<CR>{<CR><CR>return 0;}<Esc>2ki<c-i>
+
+" for c# files
+autocmd FileType cs imap <c-1> <Esc>:!dotnet build<CR>
+autocmd FileType cs nmap <c-1> <Esc>:!dotnet build<CR>
+
+" dotnet run
+autocmd FileType cs imap <c-r> <c-t>dotnet run<CR>
+autocmd FileType cs nmap <c-r> <c-t>dotnet run<CR>
 
 " set mouse
 set mouse=a
