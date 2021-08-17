@@ -18,6 +18,7 @@ Plug 'https://github.com/joshdick/onedark.vim.git'
 Plug 'https://github.com/itchyny/lightline.vim.git'
 Plug 'https://github.com/jiangmiao/auto-pairs.git'
 Plug 'https://github.com/neoclide/coc.nvim.git'
+Plug 'https://github.com/preservim/nerdtree.git'
 
 call plug#end()
 
@@ -32,3 +33,9 @@ let g:lightline = {
 
 let g:coc_disable_startup_warning = 1
 
+imap <c-b> <Esc>:NERDTreeToggle<CR>
+nmap <c-b> :NERDTreeToggle<CR>
+
+set splitbelow
+imap <c-t> <Esc>:term<CR>
+nmap <c-t> :term<CR>
