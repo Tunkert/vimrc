@@ -1,7 +1,7 @@
 1. Install required dependencies
 	a. sudo apt install git make ncurses-dev build-essential
 2. Clone from git repository
-	a. sudo apt install git make ncurses-dev build-essential
+	a. git clone https://github.com/vim/vim.git
 3. Change into vim folder
 	a. cd vim/src
 4. Configure source code
