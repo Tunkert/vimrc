@@ -1,41 +1,30 @@
 syntax on
-
-call plug#begin('~/.vim/plugged')
-
-Plug 'https://github.com/mattn/emmet-vim.git'
-Plug 'https://github.com/preservim/nerdtree.git'
-Plug 'https://github.com/frazrepo/vim-rainbow.git'
-Plug 'https://github.com/tomasiser/vim-code-dark.git'
-Plug 'https://github.com/sainnhe/sonokai.git'
-Plug 'https://github.com/morhetz/gruvbox.git'
-Plug 'https://github.com/tpope/vim-commentary.git'
-Plug 'https://github.com/lifepillar/vim-solarized8.git'
-
-call plug#end()
-
-" set linenumbers and relative number
-set number relativenumber
-
-" set tab spacing to 2 spaces and tabs to spaces
+set nocompatible
+filetype plugin indent on
+set termguicolors
+colo cobalt2 
+set rnu nu
 set tabstop=2
 set shiftwidth=2
+set softtabstop=2
+set autoindent
+set smartindent
+set expandtab
 
-" set python files to space 4 spaces
-autocmd FileType python set tabstop=4 shiftwidth=4
+autocmd FileType .py, .c, .cpp, .cs, .java set ts=4 sts=4 sw=4 ai si et
 
-" set jk and kj to Escape in insert mode
-imap jk <Esc>
-imap kj <Esc>
+imap <c-b> <Esc>:Ex<CR>
+nmap <c-b> :Ex<CR>
 
-" set control n to open terminal below
+imap <c-s> <Esc>:w<CR>i
+nmap <c-s> :w<CR>
+
+set splitright
 set splitbelow
-nnoremap <c-n> :term<CR>
+imap <c-t> <Esc>:term<CR>
+nmap <c-t> :term<CR>
 
-" set ctrl-b for nerdtree
-nnoremap <c-b> :NERDTreeToggle<CR>
+imap <c-v> <Esc>:vsplit<CR>
+nmap <c-v> :vsplit<CR>
 
-" set colors
-set termguicolors
-colo solarized8_high
-
-" colo zellner (for daytime coding or use peachpuff / delek / morning)
+set backspace=indent,eol,start
