@@ -1,107 +1,53 @@
-" Directory for plugins
-call plug#begin('~/.vim/plugged/')
+set nocompatible
+filetype plugin indent on
+syntax on
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set autoindent
+set number
+set relativenumber
+set shortmess=I
 
-" emmet
-Plug 'https://github.com/mattn/emmet-vim.git'
+call plug#begin('~/.vim/plugged')
 
-" themes - one dark
-Plug 'https://github.com/joshdick/onedark.vim.git'
-Plug 'https://github.com/tomasiser/vim-code-dark.git'
-Plug 'https://github.com/crusoexia/vim-monokai.git'
-
-" git gutter for seeing changes
-Plug 'https://github.com/airblade/vim-gitgutter.git'
-
-" for distraction free writing
-Plug 'https://github.com/junegunn/goyo.vim.git'
-
-" for css colors
-Plug 'https://github.com/ap/vim-css-color.git'
-
-" Nerdtree
-Plug 'https://github.com/preservim/nerdtree.git'
-
-" Vim commentary
-Plug 'https://github.com/tpope/vim-commentary.git'
-
-" Matching brackets
 Plug 'https://github.com/jiangmiao/auto-pairs.git'
+Plug 'https://github.com/NLKNguyen/papercolor-theme.git'
+Plug 'https://github.com/tpope/vim-surround.git'
+Plug 'https://github.com/tpope/vim-commentary.git'
+Plug 'https://github.com/Rigellute/shades-of-purple.vim.git'
+Plug 'https://github.com/vim-airline/vim-airline.git'
+Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'
+Plug 'https://github.com/mattn/emmet-vim.git'
 
 call plug#end()
 
-" set character encoding
-set encoding=UTF-8
+inoremap <Leader>cc <Esc>:set colorcolumn=80<cr>
+nnoremap <Leader>cc :set colorcolumn=80<cr>
 
-"filetype plugin and indent
-filetype plugin indent on
+inoremap <Leader>ncc <Esc>:set colorcolumn-=80<cr>
+nnoremap <Leader>ncc :set colorcolumn-=80<cr>
 
-"set tab indent
-set shiftwidth=2
-set smartindent
-set autoindent
-set tabstop=2
-set softtabstop=2
-set expandtab
+inoremap <nowait> jj <Esc>
 
-"set tab indent for python and c
-autocmd FileType python,c,cs setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
 
-"set ctrl j (same as emacs) for emmet in html and css
-autocmd FileType html,css,php imap <c-j> <c-y>,
+imap <nowait> <c-j> <c-y>,
 
-" set wildmenu tab completion
-set wildmenu
+set laststatus=2
 
-" allow clipboard to copy from something into vim
-set clipboard=unnamedplus
+set termguicolors
+colorscheme shades_of_purple
 
-" Remap ctrl i to escape insert mode 
-imap <c-l> <Esc>
+let g:shades_of_purple_airline = 1
+let g:airline_theme='shades_of_purple'
 
-" set line numbers and relative line numbers
-set nu rnu
+inoremap <c-b> <Esc>:Ex<cr>
+nnoremap <c-b> :Ex<cr>
 
-" call one dark theme
-colo codedark 
-
-" remap Goyo for distraction free writing
-imap <c-k>z <Esc>:Goyo<CR>i
-nnoremap <c-k>z <Esc>:Goyo<CR>i
-
-" remap ctrl b to nerdtree
-imap <c-b> <Esc>:NERDTreeToggle<CR><c-w>wi
-nnoremap <c-b> <Esc>:NERDTreeToggle<CR>
-
-" open nerdtree to the right
-let g:NERDTreeWinPos = "right"
-
-" set split to right
-set splitright
-nnoremap <c-v> <Esc>:vsplit<CR> 
-
-"open terminal in window below
 set splitbelow
-nnoremap <c-t> <Esc>:term<CR>
+set splitright
 
-"remap c-s to save vim file
-imap <c-s> <Esc>:w<CR>li
-nnoremap <c-s> <Esc>:w<CR>
-
-" remap ctrl c when using c files - need to work on this ...
-autocmd FileType c imap <c-c> <Esc><c-t>gcc -o test 
-autocmd FileType c nmap <c-c> <Esc><c-t>gcc -o test
-
-" start c files with info
-autocmd FileType c imap <c-1> #include <stdio.h><CR>#include <stdlib.h><CR>#include <math.h><CR><CR>int main()<CR>{<CR><CR>return 0;}<Esc>2ki<c-i>
-autocmd FileType c nmap <c-1> i#include <stdio.h><CR>#include <stdlib.h><CR>#include <math.h><CR><CR>int main()<CR>{<CR><CR>return 0;}<Esc>2ki<c-i>
-
-" for c# files
-autocmd FileType cs imap <c-1> <Esc>:!dotnet build<CR>
-autocmd FileType cs nmap <c-1> <Esc>:!dotnet build<CR>
-
-" dotnet run
-autocmd FileType cs imap <c-r> <c-t>dotnet run<CR>
-autocmd FileType cs nmap <c-r> <c-t>dotnet run<CR>
-
-" set mouse
-set mouse=a
+inoremap <c-t> <Esc>:term<cr>
+nnoremap <c-t> :term<cr>
