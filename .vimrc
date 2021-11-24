@@ -5,6 +5,10 @@ syntax on
 set number relativenumber
 set wildmenu
 set incsearch
+set autoindent
+set expandtab
+set fileformat=unix
+set textwidth=79
 
 call plug#begin('~/.vim/plugged')
 
@@ -50,21 +54,9 @@ call togglebg#map("<F5>")
 
 imap <nowait> jj <Esc>
 
-au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
+autocmd FileType .py, .c, .cpp, .cs, .java set tabstop=4 softtabstop=4 shiftwidth=4
 
-au BufNewFile,BufRead *.js, *.html, *.css
-    \ set tabstop=2
-    \ set softtabstop=2
-    \ set shiftwidth=2
-
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+autocmd FileType .js, .html, .css set tabstop=2 softtabstop=2 shiftwidth=2
 
 set encoding=utf-8
 
