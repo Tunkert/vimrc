@@ -1,53 +1,72 @@
 set nocompatible
 filetype plugin indent on
+let python_highlight_all=1
 syntax on
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set autoindent
-set number
-set relativenumber
-set shortmess=I
+set number relativenumber
+set wildmenu
+set incsearch
 
 call plug#begin('~/.vim/plugged')
 
 Plug 'https://github.com/jiangmiao/auto-pairs.git'
-Plug 'https://github.com/NLKNguyen/papercolor-theme.git'
-Plug 'https://github.com/tpope/vim-surround.git'
-Plug 'https://github.com/tpope/vim-commentary.git'
-Plug 'https://github.com/Rigellute/shades-of-purple.vim.git'
-Plug 'https://github.com/vim-airline/vim-airline.git'
-Plug 'https://github.com/ctrlpvim/ctrlp.vim.git'
-Plug 'https://github.com/mattn/emmet-vim.git'
+Plug 'https://github.com/gruvbox-community/gruvbox.git'
+Plug 'https://github.com/junegunn/goyo.vim.git'
+Plug 'tmhedberg/SimpylFold'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'vim-syntastic/syntastic'
+Plug 'nvie/vim-flake8'
+Plug 'https://github.com/altercation/vim-colors-solarized.git'
+Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 call plug#end()
 
-inoremap <Leader>cc <Esc>:set colorcolumn=80<cr>
-nnoremap <Leader>cc :set colorcolumn=80<cr>
+set guifont=Monospace\ 12
+set guioptions-=T
+set guioptions-=r
+set guioptions-=m
 
-inoremap <Leader>ncc <Esc>:set colorcolumn-=80<cr>
-nnoremap <Leader>ncc :set colorcolumn-=80<cr>
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
-inoremap <nowait> jj <Esc>
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
 
-let &t_SI = "\e[6 q"
-let &t_EI = "\e[2 q"
+" Enable folding with the spacebar
+nnoremap <space> za
 
-imap <nowait> <c-j> <c-y>,
+set columns=130
+set lines=35
 
+set clipboard=unnamedplus
+
+set bg=dark
+colorscheme solarized 
 set laststatus=2
+call togglebg#map("<F5>")
 
-set termguicolors
-colorscheme shades_of_purple
+imap <nowait> jj <Esc>
 
-let g:shades_of_purple_airline = 1
-let g:airline_theme='shades_of_purple'
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
 
-inoremap <c-b> <Esc>:Ex<cr>
-nnoremap <c-b> :Ex<cr>
+au BufNewFile,BufRead *.js, *.html, *.css
+    \ set tabstop=2
+    \ set softtabstop=2
+    \ set shiftwidth=2
 
-set splitbelow
-set splitright
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
-inoremap <c-t> <Esc>:term<cr>
-nnoremap <c-t> :term<cr>
+set encoding=utf-8
+
+inoremap <c-b> <Esc>:Explore<cr>
+nnoremap <c-b> <Esc>:Explore<cr>
