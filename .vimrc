@@ -8,7 +8,6 @@ set incsearch
 set autoindent
 set expandtab
 set fileformat=unix
-set textwidth=79
 
 call plug#begin('~/.vim/plugged')
 
@@ -20,14 +19,9 @@ Plug 'vim-scripts/indentpython.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'nvie/vim-flake8'
 Plug 'https://github.com/altercation/vim-colors-solarized.git'
-Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plug 'https://github.com/vim-airline/vim-airline.git'
 
 call plug#end()
-
-set guifont=Monospace\ 12
-set guioptions-=T
-set guioptions-=r
-set guioptions-=m
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -42,23 +36,35 @@ set foldlevel=99
 " Enable folding with the spacebar
 nnoremap <space> za
 
-set columns=130
-set lines=35
-
-set clipboard=unnamedplus
-
 set bg=dark
-colorscheme solarized 
+set termguicolors
+colorscheme gruvbox 
 set laststatus=2
 call togglebg#map("<F5>")
 
 imap <nowait> jj <Esc>
 
-autocmd FileType .py, .c, .cpp, .cs, .java set tabstop=4 softtabstop=4 shiftwidth=4
-
-autocmd FileType .js, .html, .css set tabstop=2 softtabstop=2 shiftwidth=2
-
 set encoding=utf-8
 
 inoremap <c-b> <Esc>:Explore<cr>
 nnoremap <c-b> <Esc>:Explore<cr>
+
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+let &t_SI = "\<esc>[5 q"  " blinking I-beam in insert mode
+let &t_SR = "\<esc>[3 q"  " blinking underline in replace mode
+let &t_EI = "\<esc>[ q"  " default cursor (usually blinking block) otherwise
+
+set splitbelow
+set splitright
+inoremap <c-t> <Esc>:term<cr>
+nnoremap <c-t> <Esc>:term<cr>
+
+inoremap <c-s> <Esc>:w<cr>
+nnoremap <c-s> <Esc>:w<cr>
+
+inoremap <c-a> <Esc>:Goyo<cr>
+nnoremap <c-a> <Esc>:Goyo<cr>
