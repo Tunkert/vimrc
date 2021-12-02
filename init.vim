@@ -1,53 +1,49 @@
 call plug#begin()
 
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'zchee/deoplete-jedi'
+" Use release branch (recommend)
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'https://github.com/jiangmiao/auto-pairs.git'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'jiangmiao/auto-pairs'
-Plug 'scrooloose/nerdcommenter'
-Plug 'sbdchd/neoformat'
-Plug 'davidhalter/jedi-vim'
-Plug 'scrooloose/nerdtree'
-Plug 'neomake/neomake'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'machakann/vim-highlightedyank'
-Plug 'tmhedberg/SimpylFold'
-Plug 'morhetz/gruvbox'
+Plug 'https://github.com/preservim/nerdtree.git'
+Plug 'https://github.com/junegunn/goyo.vim.git'
 
 call plug#end()
 
-set termguicolors
-set background=dark " use dark mode
-colorscheme gruvbox
-let g:gruvbox_contrast_dark = 'hard'
-let g:airline_theme='gruvbox'
+inoremap <nowait> jj <Esc>
+syntax on
+set ts=4 sts=4 sw=4
+set expandtab
 
-let g:deoplete#enable_at_startup = 1
+autocmd FileType html, css, js set ts=2 sts=2 sw=2
 
+nnoremap <Leader>cc :set colorcolumn=80<cr>
+nnoremap <Leader>ncc :set colorcolumn-=80<cr>
+
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+
+set nu rnu
+let g:airline_theme = 'cobalt2'
 set splitbelow
+set splitright
 
-inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <c-t> <Esc>:sp<cr>:term<cr>i
+nnoremap <c-t> <Esc>:sp<cr>:term<cr>i
 
-" disable autocompletion, because we use deoplete for completion
-let g:jedi#completions_enabled = 0
-
-" open the go-to function in split, not another buffer
-let g:jedi#use_splits_not_buffers = "right"
+inoremap <c-s> <Esc>:w<cr>
+nnoremap <c-s> <Esc>:w<cr>
 
 inoremap <c-b> <Esc>:NERDTreeToggle<cr>
 nnoremap <c-b> <Esc>:NERDTreeToggle<cr>
 
-inoremap <nowait> jj <Esc>
-
-set nu rnu
-set tabstop=4
-set shiftwidth=4
-set expandtab
-
-nnoremap <space> za
-
-set mouse=a
-
-nnoremap <Leader>cc :set colorcolumn=80<cr>
-nnoremap <Leader>ncc :set colorcolumn-=80<cr>
+inoremap <c-a> <Esc>:Goyo<cr>
+nnoremap <c-a> <Esc>:Goyo<cr>
