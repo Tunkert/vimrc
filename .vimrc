@@ -9,7 +9,10 @@ set smartindent
 set number
 set relativenumber
 set termguicolors
-colo delek 
+colo base16-dracula
+hi Normal ctermbg=NONE
+hi NonText ctermbg=NONE
+hi Normal guibg=NONE
 set incsearch
 imap <nowait> jj <Esc>
 let &t_SI = "\<esc>[5 q"  " blinking I-beam in insert mode
@@ -33,11 +36,8 @@ set mouse=a
 nnoremap <Leader>cc :set colorcolumn=80<cr>
 nnoremap <Leader>ncc :set colorcolumn-=80<cr>
 
-nnoremap <Leader>occ :set colorcolumn=100<cr>
-nnoremap <Leader>nocc :set colorcolumn-=100<cr>
-
-nnoremap <c-x> <Esc>:q<cr>
-inoremap <c-x> <Esc>:q<cr>
+nnoremap <c-q> <Esc>:qall<cr>
+inoremap <c-q> <Esc>:qall<cr>
 
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
@@ -49,4 +49,3 @@ inoremap <silent><expr> <Tab>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
-
