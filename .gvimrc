@@ -1,32 +1,12 @@
 syntax on
-
-set tabstop=4
-set shiftwidth=4
-
-set nu
-
-set guioptions-=T
+set nocompatible
+set ts=4 sw=4 sts=4 et ai si
+set nu rnu
 set guioptions-=m
 set guioptions-=r
-set guioptions=i
+set guioptions-=T
+set guifont=Cousine\ 11
+colo material 
+set lines=40 columns=140
+set clipboard=unnamed
 
-set guifont=DeJaVuSansMono\ 11
-
-set clipboard=unnamedplus
-
-call plug#begin('~/.vim/plugged')
-
-Plug 'https://github.com/jiangmiao/auto-pairs.git'
-Plug 'https://github.com/tpope/vim-commentary.git'
-Plug 'https://github.com/mattn/emmet-vim.git'
-Plug 'https://github.com/rakr/vim-one.git'
-Plug 'https://github.com/liuchengxu/space-vim-dark.git'
-
-call plug#end()
-
-colo space-vim-dark 
-set bg=dark
-
-set columns=130 lines=40
-
-set showtabline=0
