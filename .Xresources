@@ -1,0 +1,15 @@
+URxvt.font: xft:monaco:size=12
+URxvt.foreground: #e6e6e6
+URxvt.background: #333333
+URxvt.cursorColor: #fabd2f
+URxvt.perl-ext-common: tabbed
+URxvt.color1: #cc241d
+URxvt.color3: #d79921
+URxvt.color10: #689d6a
+URxvt.color12: #fb4934
+URxvt.tabbed.tabbar-fg: 2 
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg: 3 
+URxvt.tabbed.tab-bg: 1 
+URxvt.geometry: 120x37
+URxvt.scrollBar: false
