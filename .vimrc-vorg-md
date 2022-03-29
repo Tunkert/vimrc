@@ -1,0 +1,13 @@
+syntax on
+filetype plugin indent on
+call plug#begin()
+
+Plug 'gruvbox-community/gruvbox'
+Plug 'bbrtj/vim-vorg-md'
+
+call plug#end()
+set termguicolors
+colo gruvbox
+set rnu
+set ts=2 sts=2 sw=2 et ai si
+
