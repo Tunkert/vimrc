@@ -9,3 +9,6 @@ set lines=35 columns=120
 colo desert
 inoremap <c-s> <Esc>:w<cr>
 nnoremap <c-s> <Esc>:w<cr>
+set clipboard=unnamedplus
+inoremap <c-q> <Esc>:wq<cr>
+nnoremap <c-q> <Esc>:wq<cr>
