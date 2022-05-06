@@ -1,11 +1,9 @@
 syntax on
 filetype plugin indent on
-set ts=2 sw=2
-set nu rnu
-set guioptions-=m
+set ts=4 sts=4 sw=4 et ai si
+set nu
 set guioptions-=r
+set guioptions-=m
 set guioptions-=T
-set guifont=Inconsolata\ 12
-set lines=35 columns=130
-set clipboard=unnamedplus
+set lines=35 columns=120
 colo desert
