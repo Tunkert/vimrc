@@ -7,3 +7,5 @@ set guioptions-=m
 set guioptions-=T
 set lines=35 columns=120
 colo desert
+inoremap <c-s> <Esc>:w<cr>
+nnoremap <c-s> <Esc>:w<cr>
