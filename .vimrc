@@ -14,8 +14,10 @@ Plug 'alvan/vim-closetag'
 Plug 'AndrewRadev/tagalong.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'lifepillar/vim-mucomplete'
 
 call plug#end()
 colo gruvbox
 let g:user_emmet_leader_key=','
 let g:airline#extensions#tabline#enabled = 1
+set completeopt+=menuone
