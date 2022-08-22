@@ -1,23 +1,27 @@
 syntax on
-set ts=4 sts=4 sw=4 et ai si
-set nu rnu
+filetype plugin indent on
 set termguicolors
 inoremap <c-s> <Esc>:w<cr>
 nnoremap <c-s> <Esc>:w<cr>
-inoremap <c-q> <Esc>:q<cr>
-nnoremap <c-q> <Esc>:q<cr>
+inoremap <c-t> <Esc>:!
+nnoremap <c-t> <Esc>:!
+inoremap <c-q> <Esc>:q
+nnoremap <c-q> <Esc>:q
+inoremap jj <Esc>
+set number
+set relativenumber
+
 call plug#begin()
 
-Plug 'gruvbox-community/gruvbox'
-Plug 'mattn/emmet-vim'
-Plug 'alvan/vim-closetag'
-Plug 'AndrewRadev/tagalong.vim'
+Plug 'https://github.com/dracula/vim.git'
+Plug 'https://github.com/jiangmiao/auto-pairs.git'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'lifepillar/vim-mucomplete'
+Plug 'https://github.com/lifepillar/vim-mucomplete.git'
 
 call plug#end()
-colo gruvbox
-let g:user_emmet_leader_key=','
-let g:airline#extensions#tabline#enabled = 1
+colo dracula
 set completeopt+=menuone
+let &t_SI = "\<esc>[5 q"
+let &t_SR = "\<esc>[3 q"
+let &t_EI = "\<esc>[1 q"
