@@ -1,27 +1,24 @@
 syntax on
 filetype plugin indent on
-set termguicolors
-inoremap <c-s> <Esc>:w<cr>
-nnoremap <c-s> <Esc>:w<cr>
-inoremap <c-t> <Esc>:!
-nnoremap <c-t> <Esc>:!
-inoremap <c-q> <Esc>:q
-nnoremap <c-q> <Esc>:q
-inoremap jj <Esc>
-set number
-set relativenumber
-
+set ts=4 sts=4 sw=4 et ai si
+set nu rnu
 call plug#begin()
 
-Plug 'https://github.com/dracula/vim.git'
-Plug 'https://github.com/jiangmiao/auto-pairs.git'
+Plug 'jiangmiao/auto-pairs'
+Plug 'alvan/vim-closetag'
+Plug 'mattn/emmet-vim'
+Plug 'AndrewRadev/tagalong.vim'
+Plug 'ap/vim-css-color'
+Plug 'pangloss/vim-javascript'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'https://github.com/lifepillar/vim-mucomplete.git'
+Plug 'gruvbox-community/gruvbox'
 
 call plug#end()
-colo dracula
-set completeopt+=menuone
-let &t_SI = "\<esc>[5 q"
-let &t_SR = "\<esc>[3 q"
-let &t_EI = "\<esc>[1 q"
+let g:airline#extensions#tabline#enabled = 1
+set termguicolors
+set bg=dark
+colo gruvbox
+let g:gruvbox_contrast_dark='dark'
+let g:user_emmet_leader_key=','
+inoremap jj <Esc>
