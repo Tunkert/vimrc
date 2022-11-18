@@ -13,6 +13,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'gruvbox-community/gruvbox'
+Plug 'lifepillar/vim-mucomplete'
 
 call plug#end()
 let g:airline#extensions#tabline#enabled = 1
@@ -22,3 +23,4 @@ colo gruvbox
 let g:gruvbox_contrast_dark='dark'
 let g:user_emmet_leader_key=','
 inoremap jj <Esc>
+set completeopt+=menuone
