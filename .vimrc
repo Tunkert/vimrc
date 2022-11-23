@@ -13,21 +13,13 @@ Plug 'alvan/vim-closetag'
 Plug 'AndrewRadev/tagalong.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'ap/vim-css-color'
-Plug 'neoclide/coc.nvim'
+Plug 'junegunn/goyo.vim'
+Plug 'tomasr/molokai'
+Plug 'sickill/vim-monokai'
 
 call plug#end()
 set termguicolors
 colo sonokai
 let g:airline#extensions#tabline#enabled = 1
 let g:user_emmet_leader_key=','
-inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
-" use <tab> for trigger completion and navigate to the next complete item
-function! CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-inoremap <silent><expr> <Tab>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
+inoremap jj <Esc>
