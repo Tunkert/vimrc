@@ -4,12 +4,12 @@
 [keybindings]
 [profiles]
   [[default]]
-    background_color = "#1e1f29"
-    background_image = None
+    background_color = "#282828"
+    background_darkness = 0.8
+    background_type = transparent
     cursor_color = "#aaaaaa"
-    foreground_color = "#f8f8f2"
-    palette = "#44475a:#ff5555:#50fa7b:#f1fa8c:#8be9fd:#bd93f9:#ff79c6:#94a3a5:#000000:#ff5555:#50fa7b:#f1fa8c:#8be9fd:#bd93f9:#ff79c6:#ffffff"
-    font = Anonymous Pro 12
+    font = JetBrains Mono 12
+    foreground_color = "#ebdbb2"
     show_titlebar = False
     scrollbar_position = hidden
     use_system_font = False
